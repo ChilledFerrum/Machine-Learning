@@ -1,0 +1,2 @@
+> g++ ClassifierSource.cpp NaiveBayesianClassifier_Iris.cpp -o run
+> run.exe
