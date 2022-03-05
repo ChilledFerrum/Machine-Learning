@@ -665,7 +665,7 @@ void BayesianClassifier::HistogramNBTrain(){
 void BayesianClassifier::HistogramNBProbabilityResults(){
     double setosaLikelihood, versicolorLikelihood, virginicaLikelihood; // Likelihood
     double setosaProbability, versicolorProbability, virginicaProbability;  // Real Probability
-    double qsepal_length, sepal_width, petal_length, petal_width;
+    double sepal_lengthCNT, sepal_widthCNT, petal_lengthCNT, petal_widthCNT;
     bool setosaHas0 = false, versicolorHas0 = false, virginicaHas0 = false;
     for(unsigned int j = 0; j < test_labels.size(); ++j){
                 std::cout << "\u001b[32mExample " << j + 1 << ":\033[0m"
@@ -678,49 +678,49 @@ void BayesianClassifier::HistogramNBProbabilityResults(){
             if(test_sepal_length[j] >= 4 && test_sepal_length[j] < 5){
                 switch(i){
                     case 0:
-                        sepal_length = Sepalfrequencies_setosa.getLengthRange4to5();
+                        sepal_lengthCNT = Sepalfrequencies_setosa.getLengthRange4to5();
                         break;
                     case 1:
-                        sepal_length = Sepalfrequencies_versicolor.getLengthRange4to5();
+                        sepal_lengthCNT = Sepalfrequencies_versicolor.getLengthRange4to5();
                         break;
                     case 2:
-                        sepal_length = Sepalfrequencies_virginica.getLengthRange4to5();
+                        sepal_lengthCNT = Sepalfrequencies_virginica.getLengthRange4to5();
                         break;
                 }
             }else if(test_sepal_length[j] >= 5 && test_sepal_length[j] < 6){
                 switch(i){
                     case 0:
-                        sepal_length = Sepalfrequencies_setosa.getLengthRange5to6();
+                        sepal_lengthCNT = Sepalfrequencies_setosa.getLengthRange5to6();
                         break;
                     case 1:
-                        sepal_length = Sepalfrequencies_versicolor.getLengthRange5to6();
+                        sepal_lengthCNT = Sepalfrequencies_versicolor.getLengthRange5to6();
                         break;
                     case 2:
-                        sepal_length = Sepalfrequencies_virginica.getLengthRange5to6();
+                        sepal_lengthCNT = Sepalfrequencies_virginica.getLengthRange5to6();
                         break;
                 }
             }else if(test_sepal_length[j] >= 6 && test_sepal_length[j] < 7){
                 switch(i){
                     case 0:
-                        sepal_length = Sepalfrequencies_setosa.getLengthRange6to7();
+                        sepal_lengthCNT = Sepalfrequencies_setosa.getLengthRange6to7();
                         break;
                     case 1:
-                        sepal_length = Sepalfrequencies_versicolor.getLengthRange6to7();
+                        sepal_lengthCNT = Sepalfrequencies_versicolor.getLengthRange6to7();
                         break;
                     case 2:
-                        sepal_length = Sepalfrequencies_virginica.getLengthRange6to7();
+                        sepal_lengthCNT = Sepalfrequencies_virginica.getLengthRange6to7();
                         break;
                 }
             }else if(test_sepal_length[j] >= 7 && test_sepal_length[j] <= 8){
                 switch(i){
                     case 0:
-                        sepal_length = Sepalfrequencies_setosa.getLengthRange7to8();
+                        sepal_lengthCNT = Sepalfrequencies_setosa.getLengthRange7to8();
                         break;
                     case 1:
-                        sepal_length = Sepalfrequencies_versicolor.getLengthRange7to8();
+                        sepal_lengthCNT = Sepalfrequencies_versicolor.getLengthRange7to8();
                         break;
                     case 2:
-                        sepal_length = Sepalfrequencies_virginica.getLengthRange7to8();
+                        sepal_lengthCNT = Sepalfrequencies_virginica.getLengthRange7to8();
                         break;
                 }
             }
@@ -728,37 +728,37 @@ void BayesianClassifier::HistogramNBProbabilityResults(){
             if(test_sepal_width[j] >= 2 && test_sepal_width[j] < 3){
                 switch(i){
                     case 0:
-                        sepal_width = Sepalfrequencies_setosa.getWidthRange2to3();
+                        sepal_widthCNT = Sepalfrequencies_setosa.getWidthRange2to3();
                         break;
                     case 1:
-                        sepal_width = Sepalfrequencies_versicolor.getWidthRange2to3();
+                        sepal_widthCNT = Sepalfrequencies_versicolor.getWidthRange2to3();
                         break;
                     case 2:
-                        sepal_width = Sepalfrequencies_virginica.getWidthRange2to3();
+                        sepal_widthCNT = Sepalfrequencies_virginica.getWidthRange2to3();
                         break;
                 }
             }else if(test_sepal_width[j] >= 3 && test_sepal_width[j] < 4){
                 switch(i){
                     case 0:
-                        sepal_width = Sepalfrequencies_setosa.getWidthRange3to4();
+                        sepal_widthCNT = Sepalfrequencies_setosa.getWidthRange3to4();
                         break;
                     case 1:
-                        sepal_width = Sepalfrequencies_versicolor.getWidthRange3to4();
+                        sepal_widthCNT = Sepalfrequencies_versicolor.getWidthRange3to4();
                         break;
                     case 2:
-                        sepal_width = Sepalfrequencies_virginica.getWidthRange3to4();
+                        sepal_widthCNT = Sepalfrequencies_virginica.getWidthRange3to4();
                         break;
                 }
             }else if(test_sepal_width[j] >= 4 && test_sepal_width[j] <= 5){
                 switch(i){
                     case 0:
-                        sepal_width = Sepalfrequencies_setosa.getWidthRange4to5();
+                        sepal_widthCNT = Sepalfrequencies_setosa.getWidthRange4to5();
                         break;
                     case 1:
-                        sepal_width = Sepalfrequencies_versicolor.getWidthRange4to5();
+                        sepal_widthCNT = Sepalfrequencies_versicolor.getWidthRange4to5();
                         break;
                     case 2:
-                        sepal_width = Sepalfrequencies_virginica.getWidthRange4to5();
+                        sepal_widthCNT = Sepalfrequencies_virginica.getWidthRange4to5();
                         break;
                 }
             }
@@ -766,61 +766,61 @@ void BayesianClassifier::HistogramNBProbabilityResults(){
             if(test_petal_length[j] >= 1 && test_petal_length[j] < 2){
                 switch(i){
                     case 0:
-                        petal_length = Petalfrequencies_setosa.getLengthRange1to2();
+                        petal_lengthCNT = Petalfrequencies_setosa.getLengthRange1to2();
                         break;
                     case 1:
-                        petal_length = Petalfrequencies_versicolor.getLengthRange1to2();
+                        petal_lengthCNT = Petalfrequencies_versicolor.getLengthRange1to2();
                         break;
                     case 2:
-                        petal_length = Petalfrequencies_virginica.getLengthRange1to2();
+                        petal_lengthCNT = Petalfrequencies_virginica.getLengthRange1to2();
                         break;
                 }
             }else if(test_petal_length[j] >= 3 && test_petal_length[j] < 4){
                 switch(i){
                     case 0:
-                        petal_length = Petalfrequencies_setosa.getLengthRange3to4();
+                        petal_lengthCNT = Petalfrequencies_setosa.getLengthRange3to4();
                         break;
                     case 1:
-                        petal_length = Petalfrequencies_versicolor.getLengthRange3to4();
+                        petal_lengthCNT = Petalfrequencies_versicolor.getLengthRange3to4();
                         break;
                     case 2:
-                        petal_length = Petalfrequencies_virginica.getLengthRange3to4();
+                        petal_lengthCNT = Petalfrequencies_virginica.getLengthRange3to4();
                         break;
                 }
             }else if(test_petal_length[j] >= 4 && test_petal_length[j] < 5){
                 switch(i){
                     case 0:
-                        petal_length = Petalfrequencies_setosa.getLengthRange4to5();
+                        petal_lengthCNT = Petalfrequencies_setosa.getLengthRange4to5();
                         break;
                     case 1:
-                        petal_length = Petalfrequencies_versicolor.getLengthRange4to5();
+                        petal_lengthCNT = Petalfrequencies_versicolor.getLengthRange4to5();
                         break;
                     case 2:
-                        petal_length = Petalfrequencies_virginica.getLengthRange4to5();
+                        petal_lengthCNT = Petalfrequencies_virginica.getLengthRange4to5();
                         break;
                 }
             }else if(test_petal_length[i] >= 5 && test_petal_length[i] < 6){
                 switch(i){
                     case 0:
-                        petal_length = Petalfrequencies_setosa.getLengthRange5to6();
+                        petal_lengthCNT = Petalfrequencies_setosa.getLengthRange5to6();
                         break;
                     case 1:
-                        petal_length = Petalfrequencies_versicolor.getLengthRange5to6();
+                        petal_lengthCNT = Petalfrequencies_versicolor.getLengthRange5to6();
                         break;
                     case 2:
-                        petal_length = Petalfrequencies_virginica.getLengthRange5to6();
+                        petal_lengthCNT = Petalfrequencies_virginica.getLengthRange5to6();
                         break;
                 }
             }else if(test_petal_length[j] >= 6 && test_petal_length[j] < 7){
                 switch(i){
                     case 0:
-                        petal_length = Petalfrequencies_setosa.getLengthRange6to7();
+                        petal_lengthCNT = Petalfrequencies_setosa.getLengthRange6to7();
                         break;
                     case 1:
-                        petal_length = Petalfrequencies_versicolor.getLengthRange6to7();
+                        petal_lengthCNT = Petalfrequencies_versicolor.getLengthRange6to7();
                         break;
                     case 2:
-                        petal_length = Petalfrequencies_virginica.getLengthRange6to7();
+                        petal_lengthCNT = Petalfrequencies_virginica.getLengthRange6to7();
                         break;
                 }
             }
@@ -828,88 +828,88 @@ void BayesianClassifier::HistogramNBProbabilityResults(){
             if(test_petal_width[j] >= 0 && test_petal_width[j] < 1){
                 switch(i){
                     case 0:
-                        petal_width = Petalfrequencies_setosa.getWidthRange0to1();
+                        petal_widthCNT = Petalfrequencies_setosa.getWidthRange0to1();
                         break;
                     case 1:
-                        petal_width = Petalfrequencies_versicolor.getWidthRange0to1();
+                        petal_widthCNT = Petalfrequencies_versicolor.getWidthRange0to1();
                         break;
                     case 2:
-                        petal_width = Petalfrequencies_virginica.getWidthRange0to1();
+                        petal_widthCNT = Petalfrequencies_virginica.getWidthRange0to1();
                         break;
                 }
             }else if(test_petal_width[j] >= 1 && test_petal_width[j] < 2){
                 switch(i){
                     case 0:
-                        petal_width = Petalfrequencies_setosa.getWidthRange1to2();
+                        petal_widthCNT = Petalfrequencies_setosa.getWidthRange1to2();
                         break;
                     case 1:
-                        petal_width = Petalfrequencies_versicolor.getWidthRange1to2();
+                        petal_widthCNT = Petalfrequencies_versicolor.getWidthRange1to2();
                         break;
                     case 2:
-                        petal_width = Petalfrequencies_virginica.getWidthRange1to2();
+                        petal_widthCNT = Petalfrequencies_virginica.getWidthRange1to2();
                         break;
                 }
             }else if(test_petal_width[j] >= 2 && test_petal_width[j] <= 3){
                 switch(i){
                     case 0:
-                        petal_width = Petalfrequencies_setosa.getWidthRange2to3();
+                        petal_widthCNT = Petalfrequencies_setosa.getWidthRange2to3();
                         break;
                     case 1:
-                        petal_width = Petalfrequencies_versicolor.getWidthRange2to3();
+                        petal_widthCNT = Petalfrequencies_versicolor.getWidthRange2to3();
                         break;
                     case 2:
-                        petal_width = Petalfrequencies_virginica.getWidthRange2to3();
+                        petal_widthCNT = Petalfrequencies_virginica.getWidthRange2to3();
                         break;
                 }
             }
 
-            if(sepal_length == 0 || sepal_width == 0 || petal_length == 0 || petal_width == 0){
+            if(sepal_lengthCNT == 0 || sepal_widthCNT == 0 || petal_lengthCNT == 0 || petal_widthCNT == 0){
                 switch(i){
                     case 0:
-                        setosaLikelihood = ( (sepal_length + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
-                                        ( (sepal_width + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
-                                        ( (petal_length + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
-                                        ( (petal_width + 3/3) / (frequencyLabel.getSetosa() + 3) )*
+                        setosaLikelihood = ( (sepal_lengthCNT + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
+                                        ( (sepal_widthCNT + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
+                                        ( (petal_lengthCNT + 3/3) / (frequencyLabel.getSetosa() + 3) )* 
+                                        ( (petal_widthCNT + 3/3) / (frequencyLabel.getSetosa() + 3) )*
                                         1./3.;
 
                         break;
                     case 1:
-                        versicolorLikelihood = ( (sepal_length + 1.) / (frequencyLabel.getVersicolor() + 3) )* 
-                                        ( (sepal_width + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
-                                        ( (petal_length + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
-                                        ( (petal_width + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
+                        versicolorLikelihood = ( (sepal_lengthCNT + 1.) / (frequencyLabel.getVersicolor() + 3) )* 
+                                        ( (sepal_widthCNT + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
+                                        ( (petal_lengthCNT + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
+                                        ( (petal_widthCNT + 3/3) / (frequencyLabel.getVersicolor() + 3) )* 
                                         (1./3.);
                         break;
                     case 2:
-                        virginicaLikelihood = ( (double)(sepal_length + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
-                                        ( (double)(sepal_width + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
-                                        ( (double)(petal_length + 3/3) / (frequencyLabel.getVirginica() + 3) )*
-                                        ( (double)(petal_width + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
+                        virginicaLikelihood = ( (double)(sepal_lengthCNT + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
+                                        ( (double)(sepal_widthCNT + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
+                                        ( (double)(petal_lengthCNT + 3/3) / (frequencyLabel.getVirginica() + 3) )*
+                                        ( (double)(petal_widthCNT + 3/3) / (frequencyLabel.getVirginica() + 3) )* 
                                         (1./3.);
                         break;
                 }
             }else{
                 switch(i){
                     case 0:
-                        setosaLikelihood = ((double)sepal_length / frequencyLabel.getSetosa())* 
-                                        ((double)sepal_width / frequencyLabel.getSetosa()) * 
-                                        ((double)petal_length / frequencyLabel.getSetosa()) * 
-                                        ((double)petal_width / frequencyLabel.getSetosa()) * 
+                        setosaLikelihood = ((double)sepal_lengthCNT / frequencyLabel.getSetosa())* 
+                                        ((double)sepal_widthCNT / frequencyLabel.getSetosa()) * 
+                                        ((double)petal_lengthCNT / frequencyLabel.getSetosa()) * 
+                                        ((double)petal_widthCNT / frequencyLabel.getSetosa()) * 
                                         (1./3.);
 
                         break;
                     case 1:
-                        versicolorLikelihood = ((double)sepal_length / frequencyLabel.getVersicolor())* 
-                                        ((double)sepal_width / frequencyLabel.getVersicolor()) * 
-                                        ((double)sepal_length / frequencyLabel.getVersicolor()) * 
-                                        ((double)petal_width / frequencyLabel.getVersicolor()) * 
+                        versicolorLikelihood = ((double)sepal_lengthCNT / frequencyLabel.getVersicolor())* 
+                                        ((double)sepal_widthCNT / frequencyLabel.getVersicolor()) * 
+                                        ((double)sepal_lengthCNT / frequencyLabel.getVersicolor()) * 
+                                        ((double)petal_widthCNT / frequencyLabel.getVersicolor()) * 
                                         (1./3.);
                         break;
                     case 2:
-                        virginicaLikelihood = ((double)sepal_length / frequencyLabel.getVirginica())* 
-                                        ((double)sepal_width / frequencyLabel.getVirginica()) * 
-                                        ((double)petal_length / frequencyLabel.getVirginica()) * 
-                                        ((double)petal_width / frequencyLabel.getVirginica()) * 
+                        virginicaLikelihood = ((double)sepal_lengthCNT / frequencyLabel.getVirginica())* 
+                                        ((double)sepal_widthCNT / frequencyLabel.getVirginica()) * 
+                                        ((double)petal_lengthCNT / frequencyLabel.getVirginica()) * 
+                                        ((double)petal_widthCNT / frequencyLabel.getVirginica()) * 
                                         (1./3.);
                         break;
                 }
